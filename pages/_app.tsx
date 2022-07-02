@@ -9,7 +9,9 @@ import Footer from "../components/Footer";
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
 
-  axios.defaults.baseURL = "http://localhost:4000/";
+  const API_URL = "https://speaq-api.herokuapp.com/";
+
+  axios.defaults.baseURL = API_URL;
 
   return (
     <>
