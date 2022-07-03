@@ -20,6 +20,7 @@ const Register: NextPage = () => {
   const router = useRouter();
 
   const usernameRegex = /^[a-zA-Z0-9]+$/;
+
   const passwordRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
 
@@ -32,8 +33,10 @@ const Register: NextPage = () => {
     email: z.string().email("Invalid email."),
     password: z
       .string()
-      .min(6, "Password must have at least 6 characters.")
-      .regex(passwordRegex),
+      .regex(
+        passwordRegex,
+        "Password must contain at least one lowercase letter, one uppercase letter, one number, one special character, and at least 8 or more characters"
+      ),
   });
 
   const signupMutation = useMutation(
@@ -202,7 +205,7 @@ const Register: NextPage = () => {
                 ? errors.map((err) => {
                     return (
                       <>
-                        <span key={err.code} className="text-red-500">
+                        <span key={err.code} className="text-red-500 text-sm">
                           {err.message}
                         </span>
                         <br />
