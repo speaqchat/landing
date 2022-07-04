@@ -19,7 +19,7 @@ const Register: NextPage = () => {
 
   const router = useRouter();
 
-  const usernameRegex = /^[a-zA-Z0-9]+$/;
+  const usernameRegex = /^[a-zA-Z0-9_]+$/;
 
   const passwordRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
