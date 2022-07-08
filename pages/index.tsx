@@ -27,14 +27,13 @@ const Home: NextPage = () => {
         </div>
 
         <div className="container px-4 mx-auto flex flex-grow items-center justify-between">
-          <div className="max-w-md flex flex-col gap-4 relative">
+          <main className="max-w-md flex flex-col gap-4 relative">
             <h1 className="z-10 text-[48px] font-bold tracking-tighter w-3/4 leading-[0.9]">
               Your new chat client.
             </h1>
             <p className="z-10 leading-tight opacity-80">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-              magni distinctio voluptatem dignissimos, deserunt quisquam
-              voluptatibus ab nisi nam veritatis!
+              The best way to chat with your friends, family, and colleagues.
+              All in one place.
             </p>
 
             <div className="absolute z-0 flex filter blur-2xl">
@@ -71,7 +70,7 @@ const Home: NextPage = () => {
                 className="bg-emerald-500 mt-10 rounded-full w-20 h-16"
               ></motion.div>
             </div>
-          </div>
+          </main>
           <div className="flex flex-col gap-6 w-2/6">
             {!OS ? (
               <button
