@@ -8,11 +8,20 @@ import macOSLogo from "../assets/img/apple-alt.svg";
 import WindowsLogo from "../assets/img/microsoft.svg";
 import { useRef } from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 const Download: NextPage = () => {
   const OS = useOS();
+  const router = useRouter();
 
   const versionsRef = useRef<HTMLDivElement | null>(null);
+
+  const WINDOWS_DOWNLOAD =
+    "https://github.com/speaqchat/client/releases/download/app-v0.0.0/speaq_0.1.0_x64_en-US.msi";
+  const MAC_DOWNLOAD =
+    "https://github.com/speaqchat/client/releases/download/app-v0.0.0/speaq_0.1.0_x64.dmg";
+  const LINUX_DOWNLOAD =
+    "https://github.com/speaqchat/client/releases/download/app-v0.0.0/speaq_0.1.0_amd64.AppImage";
 
   return (
     <>
@@ -77,22 +86,20 @@ const Download: NextPage = () => {
           </div>
           <div className="flex flex-col w-2/6">
             <button
-              // onClick={() => {
-              //   router.push("/download");
-              // }}
+              onClick={() => {
+                if (OS === "macOS") {
+                  router.push(MAC_DOWNLOAD);
+                } else if (OS === "Win") {
+                  router.push(WINDOWS_DOWNLOAD);
+                } else if (OS === "Linux") {
+                  router.push(LINUX_DOWNLOAD);
+                }
+              }}
               className="py-3 rounded-full bg-primary-dark flex gap-2 items-center justify-center shadow font-medium hover:bg-brand-blue transition-colors"
             >
-              {/* <Image
-                src={
-                  (OS === "Linux" && LinuxLogo) ||
-                  (OS === "Win" && WindowsLogo) ||
-                  (OS === "macOS" && macOSLogo) ||
-                  ""
-                }
-                width={22}
-                height={22}
-              /> */}
-              <p className="text-white h-5">Download for {OS}</p>
+              <p className="text-white h-5">
+                Download for {OS === "Win" ? "Windows" : OS}
+              </p>
             </button>
             <p className="text-sm mt-4 font-medium flex gap-1 self-center">
               Not your OS?{" "}
@@ -139,7 +146,10 @@ const Download: NextPage = () => {
               <div className="bg-gradient-to-b mt-6 flex items-center justify-center from-brand-blue to-blue-900 w-full my-auto aspect-square rounded-2xl">
                 <Image width={192} height={192} src={WindowsLogo} />
               </div>
-              <button className="mt-6 text-white border rounded-full py-2 border-tertiary-dark hover:opacity-80 transition-opacity">
+              <button
+                onClick={() => router.push(WINDOWS_DOWNLOAD)}
+                className="mt-6 text-white border rounded-full py-2 border-tertiary-dark hover:opacity-80 transition-opacity"
+              >
                 Download
               </button>
             </div>
@@ -151,7 +161,10 @@ const Download: NextPage = () => {
               <div className="bg-gradient-to-b mt-6 flex items-center justify-center from-purple-600 to-purple-800 w-full my-auto aspect-square rounded-2xl">
                 <Image width={192} height={192} src={macOSLogo} />
               </div>
-              <button className="mt-6 text-white border rounded-full py-2 border-tertiary-dark hover:opacity-80 transition-opacity">
+              <button
+                onClick={() => router.push(MAC_DOWNLOAD)}
+                className="mt-6 text-white border rounded-full py-2 border-tertiary-dark hover:opacity-80 transition-opacity"
+              >
                 Download
               </button>
             </div>
@@ -163,7 +176,10 @@ const Download: NextPage = () => {
               <div className="bg-gradient-to-b mt-6 flex items-center justify-center from-emerald-600 to-emerald-800 w-full my-auto aspect-square rounded-2xl">
                 <Image width={192} height={192} src={LinuxLogo} />
               </div>
-              <button className="mt-6 text-white border rounded-full py-2 border-tertiary-dark hover:opacity-80 transition-opacity">
+              <button
+                onClick={() => router.push(LINUX_DOWNLOAD)}
+                className="mt-6 text-white border rounded-full py-2 border-tertiary-dark hover:opacity-80 transition-opacity"
+              >
                 Download
               </button>
             </div>
