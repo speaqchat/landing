@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import NavBar from "../components/NavBar";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import LinuxLogo from "../assets/img/linux.svg";
 import macOSLogo from "../assets/img/apple-alt.svg";
 import WindowsLogo from "../assets/img/microsoft.svg";
@@ -26,14 +25,14 @@ const Home: NextPage = () => {
           <NavBar />
         </div>
 
-        <div className="container px-4 mx-auto flex flex-grow items-center justify-between">
-          <main className="max-w-md flex flex-col gap-4 relative">
+        <div className="container px-4 mx-auto flex flex-col md:flex-row flex-grow items-center justify-center md:gap-0 gap-16 text-center md:text-left md:justify-between">
+          <main className="max-w-md flex flex-col gap-4 relative items-center md:items-start">
             <h1 className="z-10 text-[48px] font-bold tracking-tighter w-3/4 leading-[0.9]">
               Your new chat client.
             </h1>
             <p className="z-10 leading-tight opacity-80">
-              The best way to chat with your friends, family, and colleagues.
-              All in one place.
+              Open-source, multiplatform and performant chat app that allows
+              people to communicate with each other.
             </p>
 
             <div className="absolute z-0 flex filter blur-2xl">
@@ -71,7 +70,7 @@ const Home: NextPage = () => {
               ></motion.div>
             </div>
           </main>
-          <div className="flex flex-col gap-6 w-2/6">
+          <div className="flex flex-col gap-6 md:w-2/6">
             {!OS ? (
               <button
                 onClick={() => {
@@ -86,12 +85,12 @@ const Home: NextPage = () => {
                 onClick={() => {
                   router.push("/download");
                 }}
-                className="py-3 rounded-full bg-primary-dark flex gap-2 items-center justify-center shadow font-medium hover:bg-brand-blue transition-colors"
+                className="py-3 rounded-full bg-primary-dark flex gap-2 items-center justify-center px-6 shadow font-medium hover:bg-brand-blue transition-colors"
               >
                 <Image
                   src={
                     (OS === "Linux" && LinuxLogo) ||
-                    (OS === "Win" && WindowsLogo) ||
+                    (OS === "Windows" && WindowsLogo) ||
                     (OS === "macOS" && macOSLogo)
                   }
                   width={22}

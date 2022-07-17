@@ -24,32 +24,20 @@ const About: NextPage = () => {
             <h1 className="font-medium text-3xl tracking-tighter">
               About <span className="font-bold">speaq</span>
             </h1>
-            <p className="mt-2 tracking-tight leading-tight opacity-90">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt hic
-              ab repudiandae laborum rem earum autem soluta commodi! Odit
-              facilis repellendus voluptatum modi consequuntur. Dolorum quaerat
-              possimus facere quis sunt vero sequi, reiciendis natus dolore hic
-              consequatur omnis amet tempora necessitatibus facilis odit
-              incidunt distinctio. Maiores magnam quod repudiandae autem quae
-              dolorum iure nam delectus, fugiat temporibus eligendi quasi! Ullam
-              culpa accusantium deleniti? Nulla officiis facilis, repellendus
-              veniam doloribus omnis quidem obcaecati similique, cumque atque,
-              tenetur quibusdam dolore? Perferendis id ratione earum dolor
-              laudantium quos sed quisquam cumque voluptatem repellat, atque,
-              deleniti ipsam odio placeat rerum. Animi eaque enim doloribus
-              labore recusandae beatae rem et quidem unde in maxime eius
-              reprehenderit, cum dolores voluptatibus at minus rerum praesentium
-              fugit? Rerum reiciendis doloribus eos fugiat natus impedit ratione
-              nesciunt hic, in facilis nam. Tempore eveniet, reprehenderit eius
-              architecto sed fugiat quo aliquid magnam alias beatae corporis
-              recusandae, laudantium sunt odio voluptates. Veniam, dicta.
-              Numquam placeat eius quaerat optio itaque porro aperiam et
-              officia, nobis odio, vitae doloribus. Voluptates accusantium
-              maxime rerum accusamus ad et est totam itaque error ut. Natus
-              voluptas illum quisquam fuga nisi, veniam asperiores beatae vero
-              adipisci, in perspiciatis officiis quasi vel, exercitationem
-              magnam corporis amet sapiente dolorum.
-            </p>
+            <article className="mt-6 prose prose-zinc leading-normal">
+              <b>speaq</b> is a chat app built with an open-source technology
+              stack.
+              <br />
+              Our goal is to create a multiplatform chat app that can be used by
+              everyone, regardless of age or expertise.
+              <br />
+              The app is currently available for <b>Windows</b>, <b>Linux</b>{" "}
+              and <b>MacOS</b>, as well as on the web.
+              <br />
+              <b>We provide an alternative to other apps in the market.</b> Our
+              product was built with the latest technologies and focuses on
+              being performant as well as user-friendly.
+            </article>
           </div>
         </div>
       </motion.div>

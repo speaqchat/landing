@@ -14,7 +14,6 @@ const Register: NextPage = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<ZodIssue[] | null>(null);
 
   const router = useRouter();
@@ -57,14 +56,8 @@ const Register: NextPage = () => {
       return res.data;
     },
     {
-      onMutate: () => {
-        setLoading(true);
-      },
       onSuccess: () => {
         router.push("https://app.speaq.site/");
-      },
-      onError: (e: any) => {
-        setLoading(false);
       },
     }
   );
@@ -182,16 +175,24 @@ const Register: NextPage = () => {
               type="submit"
             >
               <AnimatePresence>
-                {loading ? (
-                  <Image
-                    width={16}
-                    height={16}
-                    src={LoaderIcon}
-                    className="animate-spin-cool"
-                  />
+                {signupMutation.isLoading ? (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Image
+                      width={16}
+                      height={16}
+                      src={LoaderIcon}
+                      className="animate-spin-cool"
+                    />
+                  </motion.div>
                 ) : (
                   <motion.span
-                    initial={{ scale: 1, opacity: 1 }}
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0, opacity: 0 }}
                     className="text-white"
                   >
@@ -205,7 +206,7 @@ const Register: NextPage = () => {
                 ? errors.map((err) => {
                     return (
                       <>
-                        <span key={err.code} className="text-red-500 text-sm">
+                        <span key={err.code} className="text-red-500 text-sm mb-2">
                           {err.message}
                         </span>
                         <br />

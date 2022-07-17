@@ -89,7 +89,7 @@ const Download: NextPage = () => {
               onClick={() => {
                 if (OS === "macOS") {
                   router.push(MAC_DOWNLOAD);
-                } else if (OS === "Win") {
+                } else if (OS === "Windows") {
                   router.push(WINDOWS_DOWNLOAD);
                 } else if (OS === "Linux") {
                   router.push(LINUX_DOWNLOAD);
@@ -97,9 +97,7 @@ const Download: NextPage = () => {
               }}
               className="py-3 rounded-full bg-primary-dark flex gap-2 items-center justify-center shadow font-medium hover:bg-brand-blue transition-colors"
             >
-              <p className="text-white h-5">
-                Download for {OS === "Win" ? "Windows" : OS}
-              </p>
+              <p className="text-white h-5">Download for {OS}</p>
             </button>
             <p className="text-sm mt-4 font-medium flex gap-1 self-center">
               Not your OS?{" "}

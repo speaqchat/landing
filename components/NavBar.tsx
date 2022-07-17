@@ -34,11 +34,11 @@ const NavBar = () => {
           </svg>
         </Link>
 
-        <div className="w-px h-full bg-primary-dark opacity-20"></div>
+        <div className="w-px hidden md:block h-full bg-primary-dark opacity-20"></div>
         <motion.div
           initial={{ translateX: -10 }}
           animate={{ translateX: 0 }}
-          className="flex gap-4 items-center"
+          className="hidden md:flex gap-4 items-center"
         >
           <Link href="/">
             <span className="cursor-pointer hover:text-brand-blue font-medium transition-colors underline underline-offset-8 decoration-2 decoration-transparent hover:decoration-brand-blue">
